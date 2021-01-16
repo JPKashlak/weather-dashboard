@@ -1,3 +1,5 @@
+var cityFormEl = document.querySelector("#city-form");
+var cityInputEl = document.querySelector("#cityInput");
 // var citySearch = 
 
 var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?q=Philadelphia&appid=581f1e37f61d004d56d5c92779c9ed8e"
@@ -66,6 +68,7 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?q=Philadelph
                 })   
             });
 
+        // Five Day Date Capture
             var day = data.list[7].dt_txt;
                 var day1 = day.split(" ")[0];
                     var dayMonth1 = day1.split("-")[1] + "-" + day1.split("-")[2]
@@ -96,6 +99,7 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?q=Philadelph
                         var date5 = document.querySelector("#forecastDate5");
                             date5.textContent = dayMonth5;
             
+
         // Five Day Forecast Data Capture       
             var futureTemp = data.list[7].main.temp
             var futureHumid = data.list[7].main.humidity
@@ -148,6 +152,7 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?q=Philadelph
                     futureHumid5.textContent = futureHumid + "%"
 
      
+        // Five Day Icons            
             var futureIcon = data.list[7].weather[0].icon;
                 var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon1")
@@ -190,4 +195,15 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?q=Philadelph
         });
     });
 
+var citySearchSubmit = function(event) {
+    
+    event.preventDefault();
+
+    var weatherCity = cityInputEl.value.trim();
+
+    console.log(weatherCity);
+
+};
+
+cityFormEl.addEventListener("submit", citySearchSubmit)
 
