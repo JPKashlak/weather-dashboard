@@ -68,38 +68,33 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?q=Philadelph
 
             var day = data.list[7].dt_txt;
                 var day1 = day.split(" ")[0];
-                console.log(day1);
-
-                var date1 = document.querySelector("#forecastDate1");
-                    date1.textContent = day1;
+                    var dayMonth1 = day1.split("-")[1] + "-" + day1.split("-")[2]
+                        var date1 = document.querySelector("#forecastDate1");
+                            date1.textContent = dayMonth1;
 
             var day = data.list[15].dt_txt;
                 var day2 = day.split(" ")[0];
-                console.log(day2);
-
-                var date2 = document.querySelector("#forecastDate2");
-                    date2.textContent = day2;
+                    var dayMonth2 = day2.split("-")[1] + "-" + day2.split("-")[2]
+                        var date2 = document.querySelector("#forecastDate2");
+                            date2.textContent = dayMonth2;
 
             var day = data.list[23].dt_txt;
                 var day3 = day.split(" ")[0];
-                console.log(day3);
-    
-                var date3 = document.querySelector("#forecastDate3");
-                    date3.textContent = day3;
+                    var dayMonth3 = day3.split("-")[1] + "-" + day3.split("-")[2]
+                        var date3 = document.querySelector("#forecastDate3");
+                            date3.textContent = dayMonth3;
 
             var day = data.list[31].dt_txt;
                 var day4 = day.split(" ")[0];
-                console.log(day4);
-        
-                var date4 = document.querySelector("#forecastDate4");
-                    date4.textContent = day4;
+                    var dayMonth4 = day4.split("-")[1] + "-" + day4.split("-")[2]
+                        var date4 = document.querySelector("#forecastDate4");
+                            date4.textContent = dayMonth4;
 
             var day = data.list[39].dt_txt;
                 var day5 = day.split(" ")[0];
-                console.log(day5);
-            
-                var date5 = document.querySelector("#forecastDate5");
-                    date5.textContent = day5;
+                    var dayMonth5 = day5.split("-")[1] + "-" + day5.split("-")[2]
+                        var date5 = document.querySelector("#forecastDate5");
+                            date5.textContent = dayMonth5;
             
         // Five Day Forecast Data Capture       
             var futureTemp = data.list[7].main.temp
