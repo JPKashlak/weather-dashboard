@@ -1,4 +1,4 @@
-var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?id=1816670&appid=581f1e37f61d004d56d5c92779c9ed8e"
+var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?id=360630&appid=581f1e37f61d004d56d5c92779c9ed8e"
     
 
     fetch(weatherFetch).then(function(response) {
@@ -33,17 +33,25 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?id=1816670&a
                 var uv = document.querySelector(".uv");
                     uv.textContent = data.value;
 
+                var cityHeader = document.querySelector("#cityHeader");
+
                     if(data.value >= 0 && data.value <= 3) {
                         uv.classList.add("bg-success");
+                        cityHeader.classList.add("text-success");
                     }
                     else if(data.value >= 3 && data.value <= 6) {
-                        uv.classList.add("bg-warning")
+                        uv.classList.add("bg-warning");
+                        cityHeader.classList.add("text-warning");
                     }
                     else if(data.value >= 6 && data.value <= 10) {
                         uv.classList.add("bg-danger")
+                        cityHeader.classList.add("text-danger");
                     }
                     else if(data.value > 11) {
-                        uv.classList.add("bg-darl text-white")
+                        uv.classList.add("bg-dark")
+                        uv.classList.add("text-light")
+                        cityHeader.classList.add("bg-dark");
+                        cityHeader.classList.add("text-light");                                         
                     }
                 })   
             });

@@ -17,14 +17,32 @@
         <button type="submit">Search</button>
     </section>
 
-    <section id="weatherToday">
-        <div><h2><span class="name"></span></h2></div>
-        <div><h3><span class="temp"></span></h3></div>
-        <div><h3><span class="wind"></span></h3></div>
-        <div><h3><span class="humid"></span></h3></div>
-        <div><h3><span class="uv"></h3></div>
-    </section>
-
+    <main class="container">
+        <section id="weatherToday">
+            <div class = "row">
+                <div class="col-lg text-center"><h2>Current weather in:</h2></div>
+            </div>
+            <div class = "row">
+                <h2 class = "col-lg text-center mb-4"><span id="cityHeader" class="name px-1"></span></h2>
+            </div>
+            <div class = "row mb-5">
+                <div class = "col-md-3 text-center"><h3 class="text-info"><span class="text-warning">T</span>emperature</h3><h4><span class="temp"></span></h4></div>
+                <div class = "col-md-3 text-center"><h3 class="text-info"><span class="text-warning">W</span>indspeed</h3><h4><span class="wind"></span></h4></div>
+                <div class = "col-md-3 text-center"><h3 class="text-info"><span class="text-warning">H</span>umidity</h3><h4><span class="humid"></span></h4></div>
+                <div class = "col-md-3 text-center"><h3 class="text-info"><span class="text-warning">U</span>V Index</h3><h4><span class="uv px-1"></h4></div>
+            </div>
+            <div class = "row">
+                <div class="col-lg text-center mb-5"><h2><span class="name"></span> Five-Day Forecast</h2></div>
+            </div>
+        </section>
+        <section id="fiveDay">
+            <div class = "card"></div>
+            <div class = "card"></div>
+            <div class = "card"></div>
+            <div class = "card"></div>
+            <div class = "card"></div>
+        </section>
+    </main>
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="assets/js/script.js"></script>
