@@ -1,8 +1,12 @@
 var cityFormEl = document.querySelector("#city-form");
 var cityInputEl = document.querySelector("#cityInput");
-// var citySearch = 
 
-var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?q=Philadelphia&appid=581f1e37f61d004d56d5c92779c9ed8e"
+var citySearchSubmit = function(event) {
+    var weatherCity = cityInputEl.value.trim();
+    event.preventDefault();
+    console.log(weatherCity)
+
+    var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?q=" + weatherCity + "&appid=581f1e37f61d004d56d5c92779c9ed8e"
    
 
     fetch(weatherFetch).then(function(response) {
@@ -194,15 +198,6 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?q=Philadelph
                     image5.src = iconUrl
         });
     });
-
-var citySearchSubmit = function(event) {
-    
-    event.preventDefault();
-
-    var weatherCity = cityInputEl.value.trim();
-
-    console.log(weatherCity);
-
 };
 
 cityFormEl.addEventListener("submit", citySearchSubmit)
