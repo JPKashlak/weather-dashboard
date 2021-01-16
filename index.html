@@ -12,10 +12,10 @@
         <h1 id="title" class="text-warning">W<span class="text-info">eather</span> D<span class="text-info">ashboard</span></h1>
     </header>
 
-    <section class="search-container">
+    <form id="weather-form" class="search-container">
         <input type="text" placeholder="Search for a City" name="search">
         <button type="submit">Search</button>
-    </section>
+    </form>
 
     <main class="container">
 
@@ -23,8 +23,11 @@
             <div class = "row">
                 <div class="col-lg text-center"><h2>Current weather in:</h2></div>
             </div>
-            <div class = "row">
-                <h2 class = "col-lg text-center mb-4"><span id="cityHeader" class="name px-1"></span></h2>
+            <div class = "row justify-content-center">
+                <h2 class = "col-lg-2 text-center mb-4">
+                    <span id="cityHeader" class="name px-1"></span>
+                </h2>
+                <div class = "col-lg-1 p-0" id="icon0"></div>
             </div>
             <div class = "row mb-5">
                 <div class = "col-md-3 text-center"><h3 class="text-info"><span class="text-warning">T</span>emperature</h3><h4><span class="temp"></span></h4></div>
@@ -42,45 +45,60 @@
                 <div class = "col-xl-2 mx-2 mb-2">
                     <div class = "card">
                         <div class = "card-header bg-info text-warning text-center"><h5 id="forecastDate1"></h5></div>
-                        <div class = "card-body">
+                        <div class = "card-body bg-primary text-center">
+                            <h6>Temperature:</h6>
                             <h6 id = "forecastTemp1"></h6>
+                            <h6>Humidity:</h6>
                             <h6 id = "forecastHumid1"></h6>
+                            <div id = "icon1"></div>
                         </div>
                     </div>
                 </div>
                 <div class = "col-xl-2 mx-2 mb-2">
                     <div class = "card">
                         <div class = "card-header bg-info text-warning text-center"><h5 id="forecastDate2"></h5></div>
-                        <div class = "card-body">
+                        <div class = "card-body bg-primary text-center">
+                            <h6>Temperature:</h6>
                             <h6 id = "forecastTemp2"></h6>
+                            <h6>Humidity:</h6>
                             <h6 id = "forecastHumid2"></h6>
+                            <div id = "icon2"></div>
                         </div>
                     </div>
                 </div>
                 <div class = "col-xl-2 mx-2 mb-2">
                     <div class = "card">
                         <div class = "card-header bg-info text-warning text-center"><h5 id="forecastDate3"></h5></div>
-                        <div class = "card-body">
+                        <div class = "card-body bg-primary text-center">
+                            <h6>Temperature:</h6>
                             <h6 id = "forecastTemp3"></h6>
+                            <h6>Humidity:</h6>
                             <h6 id = "forecastHumid3"></h6>
+                            <div id = "icon3"></div>
                         </div>
                     </div>
                 </div>
                 <div class = "col-xl-2 mx-2 mb-2">
                     <div class = "card">
                         <div class = "card-header bg-info text-warning text-center"><h5 id="forecastDate4"></h5></div>
-                        <div class = "card-body">
+                        <div class = "card-body bg-primary text-center">
+                            <h6>Temperature:</h6>
                             <h6 id = "forecastTemp4"></h6>
+                            <h6>Humidity:</h6>
                             <h6 id = "forecastHumid4"></h6>
+                            <div id = "icon4"></div>
                         </div>
                     </div>
                 </div>
                 <div class = "col-xl-2 mx-2 mb-2">
                     <div class = "card">
                         <div class = "card-header bg-info text-warning text-center"><h5 id="forecastDate5"></h5></div>
-                        <div class = "card-body">
+                        <div class = "card-body bg-primary text-center">
+                            <h6>Temperature:</h6>
                             <h6 id = "forecastTemp5"></h6>
+                            <h6>Humidity:</h6>
                             <h6 id = "forecastHumid5"></h6>
+                            <div id = "icon5"></div>
                         </div>
                     </div>
                 </div>
@@ -89,7 +107,6 @@
 
     </main>
     
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>

@@ -1,5 +1,7 @@
-var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?id=360630&appid=581f1e37f61d004d56d5c92779c9ed8e"
-    
+// var citySearch = 
+
+var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?q=Philadelphia&appid=581f1e37f61d004d56d5c92779c9ed8e"
+   
 
     fetch(weatherFetch).then(function(response) {
         response.json().then(function(data) {
@@ -9,6 +11,14 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?id=360630&ap
                 var name = document.querySelector(".name");
                     name.textContent = cityName;                   
 
+            var futureIcon = data.list[0].weather[0].icon;
+                var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
+                var iconSlot = document.querySelector("#icon0")
+    
+                var image0 = document.createElement("img")
+                    iconSlot.appendChild(image0)
+                    image0.src = iconUrl
+            
             var cityTemp = data.list[0].main.temp;
                 var fahrTemp = ((cityTemp - 273.15)*1.8 +32);
                 var celTemp = (cityTemp - 273.15);
@@ -100,7 +110,7 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?id=360630&ap
                 var futureTemp1 = document.querySelector("#forecastTemp1")
                 var futureHumid1 = document.querySelector("#forecastHumid1")
                     futureTemp1.textContent = (Math.round(fahrTemp1) + " °F") + " / " + (Math.round(celTemp1) + " °C");
-                    futureHumid1.textContent = "Humidity: " + futureHumid + "%"
+                    futureHumid1.textContent = futureHumid + "%"
 
             var futureTemp = data.list[15].main.temp
             var futureHumid = data.list[15].main.humidity
@@ -110,7 +120,7 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?id=360630&ap
                 var futureTemp2 = document.querySelector("#forecastTemp2")
                 var futureHumid2 = document.querySelector("#forecastHumid2")
                     futureTemp2.textContent = (Math.round(fahrTemp2) + " °F") + " / " + (Math.round(celTemp2) + " °C");
-                    futureHumid2.textContent = "Humidity: " + futureHumid + "%"
+                    futureHumid2.textContent = futureHumid + "%"
 
             var futureTemp = data.list[23].main.temp
             var futureHumid = data.list[23].main.humidity
@@ -120,7 +130,7 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?id=360630&ap
                 var futureTemp3 = document.querySelector("#forecastTemp3")
                 var futureHumid3 = document.querySelector("#forecastHumid3")
                     futureTemp3.textContent = (Math.round(fahrTemp3) + " °F") + " / " + (Math.round(celTemp3) + " °C");
-                    futureHumid3.textContent = "Humidity: " + futureHumid + "%"
+                    futureHumid3.textContent = futureHumid + "%"
 
             var futureTemp = data.list[31].main.temp
             var futureHumid = data.list[31].main.humidity
@@ -130,7 +140,7 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?id=360630&ap
                 var futureTemp4 = document.querySelector("#forecastTemp4")
                 var futureHumid4 = document.querySelector("#forecastHumid4")
                     futureTemp4.textContent = (Math.round(fahrTemp4) + " °F") + " / " + (Math.round(celTemp4) + " °C");
-                    futureHumid4.textContent = "Humidity: " + futureHumid + "%"
+                    futureHumid4.textContent = futureHumid + "%"
 
             var futureTemp = data.list[39].main.temp
             var futureHumid = data.list[39].main.humidity
@@ -140,7 +150,48 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?id=360630&ap
                 var futureTemp5 = document.querySelector("#forecastTemp5")
                 var futureHumid5 = document.querySelector("#forecastHumid5")
                     futureTemp5.textContent = (Math.round(fahrTemp5) + " °F") + " / " + (Math.round(celTemp5) + " °C");
-                    futureHumid5.textContent = "Humidity: " + futureHumid + "%"
+                    futureHumid5.textContent = futureHumid + "%"
+
+     
+            var futureIcon = data.list[7].weather[0].icon;
+                var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
+                var iconSlot = document.querySelector("#icon1")
+
+                var image1 = document.createElement("img")
+                    iconSlot.appendChild(image1)
+                    image1.src = iconUrl
+
+            var futureIcon = data.list[15].weather[0].icon;
+                var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
+                var iconSlot = document.querySelector("#icon2")
+
+                var image2 = document.createElement("img")
+                    iconSlot.appendChild(image2)
+                    image2.src = iconUrl
+
+            var futureIcon = data.list[23].weather[0].icon;
+                var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
+                var iconSlot = document.querySelector("#icon3")
+
+                var image3 = document.createElement("img")
+                    iconSlot.appendChild(image3)
+                    image3.src = iconUrl
+
+            var futureIcon = data.list[31].weather[0].icon;
+                var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
+                var iconSlot = document.querySelector("#icon4")
+
+                var image4 = document.createElement("img")
+                    iconSlot.appendChild(image4)
+                    image4.src = iconUrl
+
+            var futureIcon = data.list[39].weather[0].icon;
+                var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
+                var iconSlot = document.querySelector("#icon5")
+
+                var image5 = document.createElement("img")
+                    iconSlot.appendChild(image5)
+                    image5.src = iconUrl
         });
     });
 
