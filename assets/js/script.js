@@ -56,9 +56,91 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?id=360630&ap
                 })   
             });
 
-            var date = document.querySelector(".date");
-                date = data.list[0].dt_txt;
-                console.log(date.split(" ")[0]);
+            var day = data.list[7].dt_txt;
+                var day1 = day.split(" ")[0];
+                console.log(day1);
+
+                var date1 = document.querySelector("#forecastDate1");
+                    date1.textContent = day1;
+
+            var day = data.list[15].dt_txt;
+                var day2 = day.split(" ")[0];
+                console.log(day2);
+
+                var date2 = document.querySelector("#forecastDate2");
+                    date2.textContent = day2;
+
+            var day = data.list[23].dt_txt;
+                var day3 = day.split(" ")[0];
+                console.log(day3);
+    
+                var date3 = document.querySelector("#forecastDate3");
+                    date3.textContent = day3;
+
+            var day = data.list[31].dt_txt;
+                var day4 = day.split(" ")[0];
+                console.log(day4);
+        
+                var date4 = document.querySelector("#forecastDate4");
+                    date4.textContent = day4;
+
+            var day = data.list[39].dt_txt;
+                var day5 = day.split(" ")[0];
+                console.log(day5);
+            
+                var date5 = document.querySelector("#forecastDate5");
+                    date5.textContent = day5;
+            
+        // Five Day Forecast Data Capture       
+            var futureTemp = data.list[7].main.temp
+            var futureHumid = data.list[7].main.humidity
+                var fahrTemp1 = ((futureTemp - 273.15)*1.8 +32);
+                var celTemp1 = (futureTemp - 273.15);
+
+                var futureTemp1 = document.querySelector("#forecastTemp1")
+                var futureHumid1 = document.querySelector("#forecastHumid1")
+                    futureTemp1.textContent = (Math.round(fahrTemp1) + " °F") + " / " + (Math.round(celTemp1) + " °C");
+                    futureHumid1.textContent = "Humidity: " + futureHumid + "%"
+
+            var futureTemp = data.list[15].main.temp
+            var futureHumid = data.list[15].main.humidity
+                var fahrTemp2 = ((futureTemp - 273.15)*1.8 +32);
+                var celTemp2 = (futureTemp - 273.15);
+    
+                var futureTemp2 = document.querySelector("#forecastTemp2")
+                var futureHumid2 = document.querySelector("#forecastHumid2")
+                    futureTemp2.textContent = (Math.round(fahrTemp2) + " °F") + " / " + (Math.round(celTemp2) + " °C");
+                    futureHumid2.textContent = "Humidity: " + futureHumid + "%"
+
+            var futureTemp = data.list[23].main.temp
+            var futureHumid = data.list[23].main.humidity
+                var fahrTemp3 = ((futureTemp - 273.15)*1.8 +32);
+                var celTemp3 = (futureTemp - 273.15);
+    
+                var futureTemp3 = document.querySelector("#forecastTemp3")
+                var futureHumid3 = document.querySelector("#forecastHumid3")
+                    futureTemp3.textContent = (Math.round(fahrTemp3) + " °F") + " / " + (Math.round(celTemp3) + " °C");
+                    futureHumid3.textContent = "Humidity: " + futureHumid + "%"
+
+            var futureTemp = data.list[31].main.temp
+            var futureHumid = data.list[31].main.humidity
+                var fahrTemp4 = ((futureTemp - 273.15)*1.8 +32);
+                var celTemp4 = (futureTemp - 273.15);
+    
+                var futureTemp4 = document.querySelector("#forecastTemp4")
+                var futureHumid4 = document.querySelector("#forecastHumid4")
+                    futureTemp4.textContent = (Math.round(fahrTemp4) + " °F") + " / " + (Math.round(celTemp4) + " °C");
+                    futureHumid4.textContent = "Humidity: " + futureHumid + "%"
+
+            var futureTemp = data.list[39].main.temp
+            var futureHumid = data.list[39].main.humidity
+                var fahrTemp5 = ((futureTemp - 273.15)*1.8 +32);
+                var celTemp5 = (futureTemp - 273.15);
+        
+                var futureTemp5 = document.querySelector("#forecastTemp5")
+                var futureHumid5 = document.querySelector("#forecastHumid5")
+                    futureTemp5.textContent = (Math.round(fahrTemp5) + " °F") + " / " + (Math.round(celTemp5) + " °C");
+                    futureHumid5.textContent = "Humidity: " + futureHumid + "%"
         });
     });
 
