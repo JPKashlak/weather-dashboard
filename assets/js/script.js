@@ -55,6 +55,10 @@ var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?id=360630&ap
                     }
                 })   
             });
+
+            var date = document.querySelector(".date");
+                date = data.list[0].dt_txt;
+                console.log(date.split(" ")[0]);
         });
     });
 
