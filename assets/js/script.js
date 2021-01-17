@@ -230,7 +230,7 @@ var citySearchSubmit = function(event) {
 var logCity = function() {   
     var cityList = document.querySelector("#formerSearches"); 
     var newCity = cityInputEl.value.trim();
-    var citySlot = document.createElement("a")
+    var citySlot = document.createElement("p")
     citySlot.textContent = newCity
     citySlot.className = ("bg-secondary text-warning p-1 m-1")
     citySlot.setAttribute("href", "")
