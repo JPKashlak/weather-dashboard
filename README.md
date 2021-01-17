@@ -6,6 +6,7 @@ Simply search for your city, and you'll be provided with the location's:
 * Windspeed
 * Humidity
 * Color-coded UV Index
+   * (0-3: Green, 3-6 Yellow, 6-10 Red, 10+ Black)
 * Five-Day Forecast
 ## Built With
 * HTML
