@@ -3,13 +3,3 @@
     justify-content: center;
     margin: 10px;
 }
-
-#formerSearches, #previousTitle {
-    display: flex;
-    justify-content: flex-start;
-}
-
-/* @media screen and (max-width: 980px) {
-    .card-header {
-        display: block;
-    } */

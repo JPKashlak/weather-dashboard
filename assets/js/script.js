@@ -231,36 +231,26 @@ var citySearchSubmit = function(event) {
                     var citySlot = document.createElement("button")
                                     
                     citySlot.textContent = newCity
-                    citySlot.className = ("text-light ml-2 font-weight-bold bg-info btn btn-outline-light") 
-
-                    $(citySlot).click(function() {
-                        fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + newCity + "&appid=581f1e37f61d004d56d5c92779c9ed8e").then(function(response) {
-                            response.json().then(function(data) {
-                                console.log(data);
-                            })
-                        })
-                    });
-                            
+                    citySlot.className = ("text-light ml-2 font-weight-bold bg-info btn btn-outline-light")
+                                 
                     cityList.appendChild(citySlot);     
+                    citySlot.onclick = function() { console.log(newCity)}; 
                             
-
-                    if (cityList.childNodes.length > 5) {
+                    if (cityList.childNodes.length > 9) {
                         cityList.removeChild(cityList.childNodes[0])
                         cityList.appendChild(citySlot); 
                     }
-                                    
+                       
                 saveCity();
-                });
-                         
+                });             
         }
 
         else {
             alert("I could not find that city.")
         }
+
     });
 };
-
-
 
 var saveCity = function() {  
     var cityCall = $("#formerSearches").html();
@@ -273,6 +263,5 @@ var loadCity = function() {
 
 
 loadCity();
+
 cityFormEl.addEventListener("submit", citySearchSubmit)
-
-
