@@ -20,7 +20,7 @@ var citySearchSubmit = function(event) {
                     name.textContent = cityName;                   
 
             var futureIcon = data.list[0].weather[0].icon;
-                var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
+                var iconUrl = "https://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon0")
     
                 var image0 = document.createElement("img")
