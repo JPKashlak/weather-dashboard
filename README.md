@@ -9,7 +9,8 @@ Simply search for your city, and you'll be provided with the location's:
 * Five-Day Forecast
 ## Built With
 * HTML
-* JavaScripy
+* JavaScript
+    * JQuery
 * CSS
     * Bootstrap
 ## Website

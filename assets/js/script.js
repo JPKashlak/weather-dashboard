@@ -13,6 +13,8 @@ var citySearchSubmit = function(event) {
         if (response.ok) {
 
         response.json().then(function(data) {
+            
+            // Data Array Log
             console.log(data);
             
             var cityName = data.city.name;
