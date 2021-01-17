@@ -47,7 +47,7 @@ var citySearchSubmit = function(event) {
             var lat = data.city.coord.lat;
             var lon = data.city.coord.lon;
 
-            var cityFind = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=581f1e37f61d004d56d5c92779c9ed8e"
+            var cityFind = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=581f1e37f61d004d56d5c92779c9ed8e"
                 fetch(cityFind).then(function(response) {
                     response.json().then(function(data) {
 
@@ -164,7 +164,7 @@ var citySearchSubmit = function(event) {
         // Five Day Icons            
             var futureIcon = data.list[4].weather[0].icon;
 
-                var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
+                var iconUrl = "https://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon1")
 
                 var image1 = document.createElement("img")
@@ -175,7 +175,7 @@ var citySearchSubmit = function(event) {
                     }
 
             var futureIcon = data.list[12].weather[0].icon;
-                var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
+                var iconUrl = "https://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon2")
 
                 var image2 = document.createElement("img")
@@ -186,7 +186,7 @@ var citySearchSubmit = function(event) {
                     }
 
             var futureIcon = data.list[20].weather[0].icon;
-                var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
+                var iconUrl = "https://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon3")
 
                 var image3 = document.createElement("img")
@@ -197,7 +197,7 @@ var citySearchSubmit = function(event) {
                     }
 
             var futureIcon = data.list[28].weather[0].icon;
-                var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
+                var iconUrl = "https://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon4")
 
                 var image4 = document.createElement("img")
@@ -208,7 +208,7 @@ var citySearchSubmit = function(event) {
                     }
 
             var futureIcon = data.list[36].weather[0].icon;
-                var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
+                var iconUrl = "https://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon5")
 
                 var image5 = document.createElement("img")
