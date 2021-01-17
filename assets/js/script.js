@@ -50,30 +50,37 @@ var citySearchSubmit = function(event) {
             var cityFind = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=581f1e37f61d004d56d5c92779c9ed8e"
                 fetch(cityFind).then(function(response) {
                     response.json().then(function(data) {
-
+        
                 var uv = document.querySelector(".uv");
                     uv.textContent = data.value;
 
                 var cityHeader = document.querySelector("#cityHeader");
-
-                    if(data.value >= 0 && data.value <= 3) {
+                    
+                    if(uv.textContent >= 0 && uv.textContent <= 3) {
                         uv.classList.add("bg-success");
+                        uv.classList.remove("bg-dark", "bg-warning", "bg-danger", "text-light")
                         cityHeader.classList.add("text-success");
+                        cityHeader.classList.remove("text-warning", "text-danger", "text-light", "bg-dark")
                     }
-                    else if(data.value >= 3 && data.value <= 6) {
+                    else if(uv.textContent >= 3 && uv.textContent <= 6) {
                         uv.classList.add("bg-warning");
+                        uv.classList.remove("bg-dark", "bg-danger", "text-light")
                         cityHeader.classList.add("text-warning");
+                        cityHeader.classList.remove("text-danger", "text-light", "bg-dark")
                     }
-                    else if(data.value >= 6 && data.value <= 10) {
+                    else if(uv.textContent >= 6 && uv.textContent <= 10) {
                         uv.classList.add("bg-danger")
+                        uv.classList.remove("bg-dark", "text-light")
                         cityHeader.classList.add("text-danger");
+                        cityHeader.classList.remove("text-light", "bg-dark")
                     }
-                    else if(data.value > 11) {
+                    else if (uv.textContent > 10){
                         uv.classList.add("bg-dark")
                         uv.classList.add("text-light")
                         cityHeader.classList.add("bg-dark");
                         cityHeader.classList.add("text-light");                                         
                     }
+                  
                 })   
             });
 
@@ -232,8 +239,7 @@ var logCity = function() {
     var newCity = cityInputEl.value.trim();
     var citySlot = document.createElement("p")
     citySlot.textContent = newCity
-    citySlot.className = ("bg-secondary text-warning p-1 m-1")
-    citySlot.setAttribute("href", "")
+    citySlot.className = ("text-info ml-2 font-weight-bold")
     cityList.appendChild(citySlot);
     if (cityList.childNodes.length > 5) {
         cityList.removeChild(cityList.childNodes[0])

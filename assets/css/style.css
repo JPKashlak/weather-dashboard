@@ -4,9 +4,9 @@
     margin: 10px;
 }
 
-ul {
-    list-style-type: none;
-    
+#formerSearches, #previousTitle {
+    display: flex;
+    justify-content: flex-start;
 }
 
 /* @media screen and (max-width: 980px) {
