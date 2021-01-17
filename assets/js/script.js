@@ -4,12 +4,14 @@ var cityInputEl = document.querySelector("#cityInput");
 var citySearchSubmit = function(event) {
     var weatherCity = cityInputEl.value.trim();
     event.preventDefault();
-    console.log(weatherCity)
 
     var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?q=" + weatherCity + "&appid=581f1e37f61d004d56d5c92779c9ed8e"
    
 
     fetch(weatherFetch).then(function(response) {
+        
+        if (response.ok) {
+
         response.json().then(function(data) {
             console.log(data);
             
@@ -23,6 +25,7 @@ var citySearchSubmit = function(event) {
     
                 var image0 = document.createElement("img")
                     iconSlot.appendChild(image0)
+                    
                     image0.src = iconUrl
             
             var cityTemp = data.list[0].main.temp;
@@ -73,31 +76,31 @@ var citySearchSubmit = function(event) {
             });
 
         // Five Day Date Capture
-            var day = data.list[7].dt_txt;
+            var day = data.list[4].dt_txt;
                 var day1 = day.split(" ")[0];
                     var dayMonth1 = day1.split("-")[1] + "-" + day1.split("-")[2]
                         var date1 = document.querySelector("#forecastDate1");
                             date1.textContent = dayMonth1;
 
-            var day = data.list[15].dt_txt;
+            var day = data.list[12].dt_txt;
                 var day2 = day.split(" ")[0];
                     var dayMonth2 = day2.split("-")[1] + "-" + day2.split("-")[2]
                         var date2 = document.querySelector("#forecastDate2");
                             date2.textContent = dayMonth2;
 
-            var day = data.list[23].dt_txt;
+            var day = data.list[20].dt_txt;
                 var day3 = day.split(" ")[0];
                     var dayMonth3 = day3.split("-")[1] + "-" + day3.split("-")[2]
                         var date3 = document.querySelector("#forecastDate3");
                             date3.textContent = dayMonth3;
 
-            var day = data.list[31].dt_txt;
+            var day = data.list[28].dt_txt;
                 var day4 = day.split(" ")[0];
                     var dayMonth4 = day4.split("-")[1] + "-" + day4.split("-")[2]
                         var date4 = document.querySelector("#forecastDate4");
                             date4.textContent = dayMonth4;
 
-            var day = data.list[39].dt_txt;
+            var day = data.list[36].dt_txt;
                 var day5 = day.split(" ")[0];
                     var dayMonth5 = day5.split("-")[1] + "-" + day5.split("-")[2]
                         var date5 = document.querySelector("#forecastDate5");
@@ -105,59 +108,60 @@ var citySearchSubmit = function(event) {
             
 
         // Five Day Forecast Data Capture       
-            var futureTemp = data.list[7].main.temp
-            var futureHumid = data.list[7].main.humidity
+            var futureTemp = data.list[4].main.temp
+            var futureHumid = data.list[4].main.humidity
                 var fahrTemp1 = ((futureTemp - 273.15)*1.8 +32);
                 var celTemp1 = (futureTemp - 273.15);
 
                 var futureTemp1 = document.querySelector("#forecastTemp1")
                 var futureHumid1 = document.querySelector("#forecastHumid1")
-                    futureTemp1.textContent = (Math.round(fahrTemp1) + " °F") + " / " + (Math.round(celTemp1) + " °C");
+                    futureTemp1.textContent = (Math.round(fahrTemp1) + "°F") + " / " + (Math.round(celTemp1) + "°C");
                     futureHumid1.textContent = futureHumid + "%"
 
-            var futureTemp = data.list[15].main.temp
-            var futureHumid = data.list[15].main.humidity
+            var futureTemp = data.list[12].main.temp
+            var futureHumid = data.list[12].main.humidity
                 var fahrTemp2 = ((futureTemp - 273.15)*1.8 +32);
                 var celTemp2 = (futureTemp - 273.15);
     
                 var futureTemp2 = document.querySelector("#forecastTemp2")
                 var futureHumid2 = document.querySelector("#forecastHumid2")
-                    futureTemp2.textContent = (Math.round(fahrTemp2) + " °F") + " / " + (Math.round(celTemp2) + " °C");
+                    futureTemp2.textContent = (Math.round(fahrTemp2) + "°F") + " / " + (Math.round(celTemp2) + "°C");
                     futureHumid2.textContent = futureHumid + "%"
 
-            var futureTemp = data.list[23].main.temp
-            var futureHumid = data.list[23].main.humidity
+            var futureTemp = data.list[20].main.temp
+            var futureHumid = data.list[20].main.humidity
                 var fahrTemp3 = ((futureTemp - 273.15)*1.8 +32);
                 var celTemp3 = (futureTemp - 273.15);
     
                 var futureTemp3 = document.querySelector("#forecastTemp3")
                 var futureHumid3 = document.querySelector("#forecastHumid3")
-                    futureTemp3.textContent = (Math.round(fahrTemp3) + " °F") + " / " + (Math.round(celTemp3) + " °C");
+                    futureTemp3.textContent = (Math.round(fahrTemp3) + "°F") + " / " + (Math.round(celTemp3) + "°C");
                     futureHumid3.textContent = futureHumid + "%"
 
-            var futureTemp = data.list[31].main.temp
-            var futureHumid = data.list[31].main.humidity
+            var futureTemp = data.list[28].main.temp
+            var futureHumid = data.list[28].main.humidity
                 var fahrTemp4 = ((futureTemp - 273.15)*1.8 +32);
                 var celTemp4 = (futureTemp - 273.15);
     
                 var futureTemp4 = document.querySelector("#forecastTemp4")
                 var futureHumid4 = document.querySelector("#forecastHumid4")
-                    futureTemp4.textContent = (Math.round(fahrTemp4) + " °F") + " / " + (Math.round(celTemp4) + " °C");
+                    futureTemp4.textContent = (Math.round(fahrTemp4) + "°F") + " / " + (Math.round(celTemp4) + "°C");
                     futureHumid4.textContent = futureHumid + "%"
 
-            var futureTemp = data.list[39].main.temp
-            var futureHumid = data.list[39].main.humidity
+            var futureTemp = data.list[36].main.temp
+            var futureHumid = data.list[36].main.humidity
                 var fahrTemp5 = ((futureTemp - 273.15)*1.8 +32);
                 var celTemp5 = (futureTemp - 273.15);
         
                 var futureTemp5 = document.querySelector("#forecastTemp5")
                 var futureHumid5 = document.querySelector("#forecastHumid5")
-                    futureTemp5.textContent = (Math.round(fahrTemp5) + " °F") + " / " + (Math.round(celTemp5) + " °C");
+                    futureTemp5.textContent = (Math.round(fahrTemp5) + "°F") + " / " + (Math.round(celTemp5) + "°C");
                     futureHumid5.textContent = futureHumid + "%"
 
      
         // Five Day Icons            
-            var futureIcon = data.list[7].weather[0].icon;
+            var futureIcon = data.list[4].weather[0].icon;
+
                 var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon1")
 
@@ -165,7 +169,7 @@ var citySearchSubmit = function(event) {
                     iconSlot.appendChild(image1)
                     image1.src = iconUrl
 
-            var futureIcon = data.list[15].weather[0].icon;
+            var futureIcon = data.list[12].weather[0].icon;
                 var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon2")
 
@@ -173,7 +177,7 @@ var citySearchSubmit = function(event) {
                     iconSlot.appendChild(image2)
                     image2.src = iconUrl
 
-            var futureIcon = data.list[23].weather[0].icon;
+            var futureIcon = data.list[20].weather[0].icon;
                 var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon3")
 
@@ -181,7 +185,7 @@ var citySearchSubmit = function(event) {
                     iconSlot.appendChild(image3)
                     image3.src = iconUrl
 
-            var futureIcon = data.list[31].weather[0].icon;
+            var futureIcon = data.list[28].weather[0].icon;
                 var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon4")
 
@@ -189,7 +193,7 @@ var citySearchSubmit = function(event) {
                     iconSlot.appendChild(image4)
                     image4.src = iconUrl
 
-            var futureIcon = data.list[39].weather[0].icon;
+            var futureIcon = data.list[36].weather[0].icon;
                 var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon5")
 
@@ -197,8 +201,24 @@ var citySearchSubmit = function(event) {
                     iconSlot.appendChild(image5)
                     image5.src = iconUrl
         });
+        logCity();
+        }
+        else {
+            alert("I could not find that city.")
+        }
     });
 };
 
+var logCity = function() {
+    
+    var cityList = document.querySelector("#formerSearches"); 
+    var newCity = cityInputEl.value.trim();
+    var citySlot = document.createElement("li")
+    citySlot.innerHTML = newCity;
+    cityList.appendChild(citySlot);   
+
+}
+
 cityFormEl.addEventListener("submit", citySearchSubmit)
+
 
