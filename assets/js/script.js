@@ -5,7 +5,7 @@ var citySearchSubmit = function(event) {
     var weatherCity = cityInputEl.value.trim();
     event.preventDefault();
 
-    var weatherFetch = "http://api.openweathermap.org/data/2.5/forecast?q=" + weatherCity + "&appid=581f1e37f61d004d56d5c92779c9ed8e"
+    var weatherFetch = "https://api.openweathermap.org/data/2.5/forecast?q=" + weatherCity + "&appid=581f1e37f61d004d56d5c92779c9ed8e"
    
 
     fetch(weatherFetch).then(function(response) {
@@ -220,7 +220,7 @@ var citySearchSubmit = function(event) {
         });
         logCity();
         }
-        
+
         else {
             alert("I could not find that city.")
         }
@@ -230,11 +230,14 @@ var citySearchSubmit = function(event) {
 var logCity = function() {   
     var cityList = document.querySelector("#formerSearches"); 
     var newCity = cityInputEl.value.trim();
-    var citySlot = document.createElement("li")
+    var citySlot = document.createElement("a")
     citySlot.textContent = newCity
+    citySlot.className = ("bg-secondary text-warning p-1 m-1")
+    citySlot.setAttribute("href", "")
     cityList.appendChild(citySlot);
     if (cityList.childNodes.length > 5) {
         cityList.removeChild(cityList.childNodes[0])
+        cityList.appendChild(citySlot);
     }
 }
 
