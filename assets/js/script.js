@@ -219,8 +219,8 @@ var citySearchSubmit = function(event) {
                     }
         });
         logCity();
-        
         }
+        
         else {
             alert("I could not find that city.")
         }
@@ -233,7 +233,12 @@ var logCity = function() {
     var citySlot = document.createElement("li")
     citySlot.textContent = newCity
     cityList.appendChild(citySlot);
+    if (cityList.childNodes.length > 5) {
+        cityList.removeChild(cityList.childNodes[0])
+    }
 }
+
+
 
 cityFormEl.addEventListener("submit", citySearchSubmit)
 
