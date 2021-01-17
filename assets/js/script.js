@@ -11,7 +11,7 @@ var citySearchSubmit = function(event) {
     fetch(weatherFetch).then(function(response) {
         
         if (response.ok) {
-
+        
         response.json().then(function(data) {
             
             // Data Array Log
@@ -20,8 +20,8 @@ var citySearchSubmit = function(event) {
             var cityName = data.city.name;
                 var name = document.querySelector(".name");
                     name.textContent = cityName;                   
-
-            var futureIcon = data.list[0].weather[0].icon;
+            
+            var futureIcon = data.list[0].weather[0].icon.split("")[0] + data.list[0].weather[0].icon.split("")[1] + "d";
                 var iconUrl = "https://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon0")
     
@@ -171,7 +171,7 @@ var citySearchSubmit = function(event) {
 
      
         // Five Day Icons            
-            var futureIcon = data.list[4].weather[0].icon;
+            var futureIcon = data.list[7].weather[0].icon.split("")[0] + data.list[7].weather[0].icon.split("")[1] + "d";
 
                 var iconUrl = "https://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon1")
@@ -183,7 +183,7 @@ var citySearchSubmit = function(event) {
                         iconSlot.removeChild(iconSlot.childNodes[0])
                     }
 
-            var futureIcon = data.list[12].weather[0].icon;
+            var futureIcon = data.list[15].weather[0].icon.split("")[0] + data.list[15].weather[0].icon.split("")[1] + "d";
                 var iconUrl = "https://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon2")
 
@@ -194,7 +194,7 @@ var citySearchSubmit = function(event) {
                         iconSlot.removeChild(iconSlot.childNodes[0])
                     }
 
-            var futureIcon = data.list[20].weather[0].icon;
+            var futureIcon = data.list[23].weather[0].icon.split("")[0] + data.list[23].weather[0].icon.split("")[1] + "d";
                 var iconUrl = "https://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon3")
 
@@ -205,7 +205,7 @@ var citySearchSubmit = function(event) {
                         iconSlot.removeChild(iconSlot.childNodes[0])
                     }
 
-            var futureIcon = data.list[28].weather[0].icon;
+            var futureIcon = data.list[31].weather[0].icon.split("")[0] + data.list[31].weather[0].icon.split("")[1] + "d";
                 var iconUrl = "https://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon4")
 
@@ -216,7 +216,7 @@ var citySearchSubmit = function(event) {
                         iconSlot.removeChild(iconSlot.childNodes[0])
                     }
 
-            var futureIcon = data.list[36].weather[0].icon;
+            var futureIcon = data.list[39].weather[0].icon.split("")[0] + data.list[39].weather[0].icon.split("")[1] + "d";
                 var iconUrl = "https://openweathermap.org/img/wn/" + futureIcon + ".png"
                 var iconSlot = document.querySelector("#icon5")
 
@@ -237,17 +237,24 @@ var citySearchSubmit = function(event) {
 };
 
 var logCity = function() {   
+    
     var cityList = document.querySelector("#formerSearches"); 
     var newCity = cityInputEl.value.trim();
-    var citySlot = document.createElement("p")
+    var citySlot = document.createElement("a")
+
     citySlot.textContent = newCity
-    citySlot.className = ("text-info ml-2 font-weight-bold")
+    citySlot.className = ("text-info ml-2 font-weight-bold") 
+   
     cityList.appendChild(citySlot);
+    
+
     if (cityList.childNodes.length > 5) {
         cityList.removeChild(cityList.childNodes[0])
         cityList.appendChild(citySlot); 
     }
+
     saveCity();
+
 };
 
 var saveCity = function() {  
@@ -258,7 +265,6 @@ var saveCity = function() {
 var loadCity = function() {
     $("#formerSearches").html(localStorage.getItem('searchHistory'))
 };
-
 
 
 loadCity();
