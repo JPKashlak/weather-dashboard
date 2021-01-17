@@ -226,8 +226,28 @@ var citySearchSubmit = function(event) {
                     if (iconSlot.childNodes.length > 1) {
                         iconSlot.removeChild(iconSlot.childNodes[0])
                     }
-        });
-        logCity();
+
+                    var revisitCity = function() {
+                        console.log(newCity);
+                    }
+                
+                    var cityList = document.querySelector("#formerSearches"); 
+                    var newCity = data.city.name;
+                    var citySlot = document.createElement("button")
+                
+                    citySlot.textContent = newCity
+                    citySlot.className = ("text-light ml-2 font-weight-bold bg-info btn btn-outline-light") 
+                    citySlot.setAttribute ("onclick", revisitCity());
+                    cityList.appendChild(citySlot);
+                    
+                
+                    if (cityList.childNodes.length > 5) {
+                        cityList.removeChild(cityList.childNodes[0])
+                        cityList.appendChild(citySlot); 
+                    }
+                    saveCity();
+                });
+                         
         }
 
         else {
@@ -236,26 +256,6 @@ var citySearchSubmit = function(event) {
     });
 };
 
-var logCity = function() {   
-    
-    var cityList = document.querySelector("#formerSearches"); 
-    var newCity = cityInputEl.value.trim();
-    var citySlot = document.createElement("a")
-
-    citySlot.textContent = newCity
-    citySlot.className = ("text-info ml-2 font-weight-bold") 
-   
-    cityList.appendChild(citySlot);
-    
-
-    if (cityList.childNodes.length > 5) {
-        cityList.removeChild(cityList.childNodes[0])
-        cityList.appendChild(citySlot); 
-    }
-
-    saveCity();
-
-};
 
 var saveCity = function() {  
     var cityCall = $("#formerSearches").html();
@@ -265,7 +265,6 @@ var saveCity = function() {
 var loadCity = function() {
     $("#formerSearches").html(localStorage.getItem('searchHistory'))
 };
-
 
 loadCity();
 cityFormEl.addEventListener("submit", citySearchSubmit)
