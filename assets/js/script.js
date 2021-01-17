@@ -243,12 +243,23 @@ var logCity = function() {
     cityList.appendChild(citySlot);
     if (cityList.childNodes.length > 5) {
         cityList.removeChild(cityList.childNodes[0])
-        cityList.appendChild(citySlot);
+        cityList.appendChild(citySlot); 
     }
-}
+    saveCity();
+};
+
+var saveCity = function() {  
+    var cityCall = $("#formerSearches").html();
+    $("#searchSave").html(localStorage.setItem('searchHistory', cityCall))
+};
+
+var loadCity = function() {
+    $("#formerSearches").html(localStorage.getItem('searchHistory'))
+};
 
 
 
+loadCity();
 cityFormEl.addEventListener("submit", citySearchSubmit)
 
 
