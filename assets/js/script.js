@@ -7,7 +7,6 @@ var citySearchSubmit = function(event) {
 
     var weatherFetch = "https://api.openweathermap.org/data/2.5/forecast?q=" + weatherCity + "&appid=581f1e37f61d004d56d5c92779c9ed8e"
    
-
     fetch(weatherFetch).then(function(response) {
         
         if (response.ok) {
@@ -227,25 +226,30 @@ var citySearchSubmit = function(event) {
                         iconSlot.removeChild(iconSlot.childNodes[0])
                     }
 
-                    var revisitCity = function() {
-                        console.log(newCity);
-                    }
-                
                     var cityList = document.querySelector("#formerSearches"); 
                     var newCity = data.city.name;
                     var citySlot = document.createElement("button")
-                
+                                    
                     citySlot.textContent = newCity
                     citySlot.className = ("text-light ml-2 font-weight-bold bg-info btn btn-outline-light") 
-                    citySlot.setAttribute ("onclick", revisitCity());
-                    cityList.appendChild(citySlot);
-                    
-                
+
+                    $(citySlot).click(function() {
+                        fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + newCity + "&appid=581f1e37f61d004d56d5c92779c9ed8e").then(function(response) {
+                            response.json().then(function(data) {
+                                console.log(data);
+                            })
+                        })
+                    });
+                            
+                    cityList.appendChild(citySlot);     
+                            
+
                     if (cityList.childNodes.length > 5) {
                         cityList.removeChild(cityList.childNodes[0])
                         cityList.appendChild(citySlot); 
                     }
-                    saveCity();
+                                    
+                saveCity();
                 });
                          
         }
@@ -257,6 +261,7 @@ var citySearchSubmit = function(event) {
 };
 
 
+
 var saveCity = function() {  
     var cityCall = $("#formerSearches").html();
     $("#searchSave").html(localStorage.setItem('searchHistory', cityCall))
@@ -265,6 +270,7 @@ var saveCity = function() {
 var loadCity = function() {
     $("#formerSearches").html(localStorage.getItem('searchHistory'))
 };
+
 
 loadCity();
 cityFormEl.addEventListener("submit", citySearchSubmit)
