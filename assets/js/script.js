@@ -25,8 +25,10 @@ var citySearchSubmit = function(event) {
     
                 var image0 = document.createElement("img")
                     iconSlot.appendChild(image0)
-                    
                     image0.src = iconUrl
+                    if (iconSlot.childNodes.length > 1) {
+                        iconSlot.removeChild(iconSlot.childNodes[0])
+                    }
             
             var cityTemp = data.list[0].main.temp;
                 var fahrTemp = ((cityTemp - 273.15)*1.8 +32);
@@ -168,6 +170,9 @@ var citySearchSubmit = function(event) {
                 var image1 = document.createElement("img")
                     iconSlot.appendChild(image1)
                     image1.src = iconUrl
+                    if (iconSlot.childNodes.length > 1) {
+                        iconSlot.removeChild(iconSlot.childNodes[0])
+                    }
 
             var futureIcon = data.list[12].weather[0].icon;
                 var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
@@ -176,6 +181,9 @@ var citySearchSubmit = function(event) {
                 var image2 = document.createElement("img")
                     iconSlot.appendChild(image2)
                     image2.src = iconUrl
+                    if (iconSlot.childNodes.length > 1) {
+                        iconSlot.removeChild(iconSlot.childNodes[0])
+                    }
 
             var futureIcon = data.list[20].weather[0].icon;
                 var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
@@ -184,6 +192,9 @@ var citySearchSubmit = function(event) {
                 var image3 = document.createElement("img")
                     iconSlot.appendChild(image3)
                     image3.src = iconUrl
+                    if (iconSlot.childNodes.length > 1) {
+                        iconSlot.removeChild(iconSlot.childNodes[0])
+                    }
 
             var futureIcon = data.list[28].weather[0].icon;
                 var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
@@ -192,6 +203,9 @@ var citySearchSubmit = function(event) {
                 var image4 = document.createElement("img")
                     iconSlot.appendChild(image4)
                     image4.src = iconUrl
+                    if (iconSlot.childNodes.length > 1) {
+                        iconSlot.removeChild(iconSlot.childNodes[0])
+                    }
 
             var futureIcon = data.list[36].weather[0].icon;
                 var iconUrl = "http://openweathermap.org/img/wn/" + futureIcon + ".png"
@@ -200,8 +214,12 @@ var citySearchSubmit = function(event) {
                 var image5 = document.createElement("img")
                     iconSlot.appendChild(image5)
                     image5.src = iconUrl
+                    if (iconSlot.childNodes.length > 1) {
+                        iconSlot.removeChild(iconSlot.childNodes[0])
+                    }
         });
         logCity();
+        
         }
         else {
             alert("I could not find that city.")
@@ -209,14 +227,12 @@ var citySearchSubmit = function(event) {
     });
 };
 
-var logCity = function() {
-    
+var logCity = function() {   
     var cityList = document.querySelector("#formerSearches"); 
     var newCity = cityInputEl.value.trim();
     var citySlot = document.createElement("li")
-    citySlot.innerHTML = newCity;
-    cityList.appendChild(citySlot);   
-
+    citySlot.textContent = newCity
+    cityList.appendChild(citySlot);
 }
 
 cityFormEl.addEventListener("submit", citySearchSubmit)
